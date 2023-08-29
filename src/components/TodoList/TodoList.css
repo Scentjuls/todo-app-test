@@ -15,13 +15,28 @@
     height: 90%;
 }
 
-.todo-item {
+.todo-task {
+    display: flex;
+    justify-content: space-between;
     border-bottom: .05rem solid rgba(0, 0, 0, 0.082);
     padding: 1rem 0;
+}
+
+.todo-item {
     cursor: pointer;
+    margin-bottom: 0;
 }
 
 .todo-item-active {
     text-decoration: line-through;
     color: grey
+}
+
+.delete-btn {
+    border: none;
+    padding: 0.3rem 2rem;
+    border-radius: 0.2rem;
+    background-color: rgb(53, 201, 157);
+    color: white;
+    font-weight: 900;
 }

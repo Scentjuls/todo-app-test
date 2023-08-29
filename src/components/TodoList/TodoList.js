@@ -6,7 +6,8 @@ function TodoList({
     todos, setTodos
 }) {
 
-    const updateTask = (id) => {
+    const updateTask = (id, e) => {
+        e.stopPropagation();
         let updatedTasks = todos.map((todo) => {
             if(todo.id === id) {
                 todo.completed = !todo.completed;
@@ -26,17 +27,31 @@ function TodoList({
         return count
     }
 
+    const deleteTodo = (todoId, e) => {
+        e.stopPropagation();
+        let newArray = [...todos];
+        const newTodos = newArray.filter((element) => element.id !== todoId);
+        setTodos(newTodos);
+    }
+
+    const clearTasks = () => {
+        setTodos([]);
+    }
+
     return (
         <div className="todolist-container">
             <div className="todos-container">
                 <div>
                     {
                         todos.map((todo, index) => (
-                            <div 
-                                className={`todo-item ${todo.completed && "todo-item-active"}`} 
-                                onClick={() => updateTask(todo.id)}
+                            <div
+                                className="todo-task"
+                                onClick={(e) => updateTask(todo.id,e)}
+                                key={index}
+                                data-testid="task-container"
                             >
-                                {todo.task}
+                                <p className={`todo-item ${todo.completed && "todo-item-active"}`}>{todo.task}</p>
+                                <button className="delete-btn" onClick={(e) => deleteTodo(todo.id, e)}>Delete</button>
                             </div>
                         ))
                     }
@@ -45,6 +60,7 @@ function TodoList({
             <div>
                 <TodoFooter 
                     numberOfIncompleteTasks={calcNumberOfIncompletedTasks()}
+                    clearTasks={clearTasks}
                 />
             </div>
         </div>
