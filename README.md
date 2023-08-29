@@ -10,7 +10,7 @@ been tested using the testing library and jest. The functionalities include
 - Adding tasks to do list
 - Marking task as completed or not done yet
 - Deleting an item in the list
-- Clearing all items in the list
+- Clearing all the items in the list
 
 ### To be added
 
