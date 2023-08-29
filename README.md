@@ -2,6 +2,21 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Available Functionalities
+
+This is a cloned repo from net-ninja on react-testing library. The app is a todo app that has
+been tested using the testing library and jest. The functionalities include
+
+- Adding tasks to do list
+- Marking task as completed or not done yet
+- Deleting an item in the list
+- Clearing all items in the list
+
+### To be added
+
+- Filtering out completed tasks
+- Editing already written tasks
+
 ## Available Scripts
 
 In the project directory, you can run:
