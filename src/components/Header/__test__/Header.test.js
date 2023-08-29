@@ -1,90 +1,55 @@
 import { render, screen } from '@testing-library/react';
-import Header from '../Header';
+import Header from "../Header";
 
 describe("Header", () => {
     it('should render same text passed into title prop', () => {
-        render(
-            <Header 
-              title="todo"
-            />
-        );
-        const h1Element = screen.getByText(/todo/i);
-        expect(h1Element).toBeInTheDocument();
+        render(<Header title="My header"/>);
+        const headingElement = screen.getByText(/my header/i);
+        expect(headingElement).toBeInTheDocument();
     });
-})
+});
 
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header 
-//           title="todo"
-//         />
-//     );
-//     const h1Element = screen.getByRole("heading");
-//     expect(h1Element).toBeInTheDocument();
+// it('should get the heading by role', () => {
+//   render(<Header title="My header"/>);
+//   const headingElement = screen.getByRole("heading");
+//   expect(headingElement).toBeInTheDocument();
 // });
 
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header 
-//           title="todo"
-//         />
-//     );
-//     const h1Element = screen.getByRole("heading", { name: /todo/i });
-//     expect(h1Element).toBeInTheDocument();
+// it('Get the exact heading text using the role', () => {
+//   render(<Header title="My header"/>);
+//   const headingElement = screen.getByRole("heading", {name: "My header"});
+//   expect(headingElement).toBeInTheDocument();
 // });
 
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header 
-//           title="todo"
-//         />
-//     );
-//     const h1Element = screen.getByTitle("Header");
-//     expect(h1Element).toBeInTheDocument();
+// it('Get by title', () => {
+//   render(<Header title="My header"/>);
+//   const headingElement = screen.getByTitle("Header");
+//   expect(headingElement).toBeInTheDocument();
 // });
 
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header 
-//           title="todo"
-//         />
-//     );
-//     const h2Element = screen.getByTestId("header-2");
-//     expect(h2Element).toBeInTheDocument();
+// it('Get the exact heading by using test id', () => {
+//   render(<Header title="My header"/>);
+//   const headingElement = screen.getByTestId("header-1");
+//   expect(headingElement).toBeInTheDocument();
 // });
 
-// // WITH FINDBY
 
-// it('should render same text passed into title prop', async () => {
-//     render(
-//         <Header 
-//           title="todo"
-//         />
-//     );
-//     const h1Element = await screen.findByText(/todo/i);
-//     expect(h1Element).toBeInTheDocument();
+// // when using the find by it has to be asynchronous
+// it('Find text using find by', async () => {
+//   render(<Header title="My header"/>);
+//   const headingElement = await screen.findByText(/my header/i);
+//   expect(headingElement).toBeInTheDocument();
 // });
 
-// // WITH QUERYBY
-
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header 
-//           title="todo"
-//         />
-//     );
-//     const h1Element = screen.queryByText(/dogs/i);
-//     expect(h1Element).not.toBeInTheDocument
+// it('Query text using query by', () => {
+//   render(<Header title="My header"/>);
+//   const headingElement = screen.queryByText(/dogs/i);
+//   expect(headingElement).not.toBeInTheDocument();
 // });
 
-// // WITH GETALLBY
+// it('Get all the roles and it should be 2', () => {
+//   render(<Header title="My header"/>);
+//   const headingElements = screen.getAllByRole("heading");
+//   expect(headingElements.length).toBe(2);
 
-// it('should render same text passed into title prop', () => {
-//     render(
-//         <Header 
-//           title="todo"
-//         />
-//     );
-//     const h1Elements = screen.getAllByText(/todo/i);
-//     expect(h1Elements.length).toBe(1);
 // });
