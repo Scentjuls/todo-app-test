@@ -55,4 +55,5 @@ describe("TodoFooter", () => {
 //   render(<MockTodoFooter numberOfIncompleteTasks={1}/>);
 //   const paragrapghElement = screen.getByTestId("numberOfIncompleteTasks");
 //   expect(paragrapghElement.textContent).toBe("1 task left");
+
 // });

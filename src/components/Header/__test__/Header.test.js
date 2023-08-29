@@ -9,8 +9,6 @@ describe("Header", () => {
     });
 });
 
-
-
 // it('should get the heading by role', () => {
 //   render(<Header title="My header"/>);
 //   const headingElement = screen.getByRole("heading");
@@ -53,4 +51,5 @@ describe("Header", () => {
 //   render(<Header title="My header"/>);
 //   const headingElements = screen.getAllByRole("heading");
 //   expect(headingElements.length).toBe(2);
+
 // });
