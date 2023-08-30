@@ -14,6 +14,22 @@ const MockFollowersList = () => {
 }
 
 describe("FollowersList", () => {
+    beforeEach(() => {
+        console.log("running befofe each test")
+    })
+
+    beforeAll(() => {
+        console.log('running once before all test') // runs once for this file only
+    })
+
+    afterEach(() => {
+        console.log("running after each test")
+    })
+
+    afterAll(() => {
+        console.log("runs once after all test")
+    })
+
     it('should render at least one card', async () => {
         render(<MockFollowersList />);
         const followerDivElement = await screen.findByTestId("follower-item-0");
