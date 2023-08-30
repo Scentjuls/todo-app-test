@@ -9,13 +9,20 @@ been tested using the testing library and jest. The functionalities include
 
 - Adding tasks to do list
 - Marking task as completed or not done yet
-- Deleting an item in the list
-- Clearing all the items in the list
+- Deleting tasks
+- Clearing all tasks
 
 ### To be added
 
 - Filtering out completed tasks
 - Editing already written tasks
+- User Profile
+- Pagination on Tasks
+- Loading More on Tasks
+- Infinite scrolling on Tasks
+- Dragging and dropping of tasks in the list
+- Uploading a .docx with tasks and showing it on the screen
+- Search bar for filtering through tasks by name, description etc...
 
 ## Available Scripts
 
