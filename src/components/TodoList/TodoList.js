@@ -1,10 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import TodoFooter from '../TodoFooter/TodoFooter'
 import "./TodoList.css"
+import { SearchTodo } from '../SearchTodo/SearchTodo';
+import { SearchResultsTodo } from '../SearchResultsTodo/SearchResultsTodo';
 
 function TodoList({
     todos, setTodos
 }) {
+    const [searchedResults, setSearchedResults] = useState(false);
 
     const updateTask = (id, e) => {
         e.stopPropagation();
@@ -16,12 +19,13 @@ function TodoList({
                 return todo
             }
         });
-        setTodos(updatedTasks)
+        setTodos(updatedTasks);
+        localStorage.setItem("tasks", JSON.stringify(updatedTasks));
     }
 
     const calcNumberOfIncompletedTasks = () => {
         let count = 0;
-        todos.forEach(todo => {
+        JSON.parse(localStorage.getItem("tasks")).forEach(todo => {
             if(!todo.completed) count++
         })
         return count
@@ -32,28 +36,45 @@ function TodoList({
         let newArray = [...todos];
         const newTodos = newArray.filter((element) => element.id !== todoId);
         setTodos(newTodos);
+        localStorage.setItem("tasks", JSON.stringify(newTodos));
     }
 
     const clearTasks = () => {
         setTodos([]);
     }
 
+    const handleTodoChange = (message) => {
+        console.log("message", message)
+        setSearchedResults(message);
+    }
+
     return (
         <div className="todolist-container">
+            <SearchTodo todos={todos} setTodos={setTodos} onSetTodos={handleTodoChange} />
             <div className="todos-container">
                 <div>
                     {
-                        todos.map((todo, index) => (
-                            <div
-                                className="todo-task"
-                                onClick={(e) => updateTask(todo.id,e)}
-                                key={index}
-                                data-testid="task-container"
-                            >
-                                <p className={`todo-item ${todo.completed && "todo-item-active"}`}>{todo.task}</p>
-                                <button className="delete-btn" onClick={(e) => deleteTodo(todo.id, e)}>Delete</button>
+                        searchedResults ? (
+                            <div>
+                                <SearchResultsTodo />
                             </div>
-                        ))
+                        ): (
+                            <div>
+                                {
+                                    JSON.parse(localStorage.getItem("tasks")).map((todo, index) => (
+                                        <div
+                                            className="todo-task"
+                                            onClick={(e) => updateTask(todo.id,e)}
+                                            key={index}
+                                            data-testid="task-container"
+                                        >
+                                            <p className={`todo-item ${todo.completed && "todo-item-active"}`}>{todo.task}</p>
+                                            <button className="btn" onClick={(e) => deleteTodo(todo.id, e)}>Delete</button>
+                                        </div>
+                                    ))
+                                }
+                            </div>  
+                        )
                     }
                 </div>
             </div>

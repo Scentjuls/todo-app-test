@@ -31,12 +31,3 @@
     text-decoration: line-through;
     color: grey
 }
-
-.delete-btn {
-    border: none;
-    padding: 0.3rem 2rem;
-    border-radius: 0.2rem;
-    background-color: rgb(53, 201, 157);
-    color: white;
-    font-weight: 900;
-}
