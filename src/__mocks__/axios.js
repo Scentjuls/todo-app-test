@@ -3,20 +3,19 @@ const mockResponse = {
         results: [
             {
                 name: {
-                    first: "Laith",
-                    last: "Harb"
+                    first: "Chi",
+                    last: "Scenti"
                 },
                 picture: {
-                    large: "https://randomuser.me/api/portraits/men/59.jpg"
+                    large: "https://randomuser.me/api/portraits/women/17.jpg"
                 },
                 login: {
-                    username: "ThePhonyGOAT"
+                    username: "Cognoscenti"
                 }
             }
         ]
     }
 }
-
 
 export default {
     get: jest.fn().mockResolvedValue(mockResponse)
