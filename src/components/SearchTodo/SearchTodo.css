@@ -6,6 +6,7 @@
     box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.329);
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .search {
@@ -15,4 +16,12 @@
 
 .search:focus {
     outline: none;
+}
+
+.clear {
+    position: absolute;
+    right: 140px;
+    top: 18px;
+    border: none;
+    background-color: white;
 }
