@@ -14,7 +14,6 @@ const reducer = (state, action) => {
 
 export const SearchTodo = (props) => {
     const { todos, setTodos, onSetTodos } = props;
-
     const [state, dispatch] = useReducer(reducer, {color: false, search: ""})
 
     useEffect(() => {
@@ -38,7 +37,8 @@ export const SearchTodo = (props) => {
     }
 
     const clearSearch = () => {
-        dispatch({type: "search", payload: ""});
+        dispatch({ type: "search", payload: "" });
+        onSetTodos(false);
     }
 
   return (
