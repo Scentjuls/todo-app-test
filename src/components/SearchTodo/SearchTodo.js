@@ -12,6 +12,11 @@ const reducer = (state, action) => {
     }
 }
 
+const ACTION = {
+    COLOR: "color",
+    SEARCH_INPUT: "search"
+}
+
 export const SearchTodo = (props) => {
     const { todos, setTodos, onSetTodos } = props;
     const [state, dispatch] = useReducer(reducer, {color: false, search: ""})
@@ -37,7 +42,7 @@ export const SearchTodo = (props) => {
     }
 
     const clearSearch = () => {
-        dispatch({ type: "search", payload: "" });
+        dispatch({ type: ACTION.SEARCH_INPUT, payload: "" });
         onSetTodos(false);
     }
 
@@ -48,13 +53,13 @@ export const SearchTodo = (props) => {
               className="search"
               placeholder="search for a task..."
               value={state.search}
-              onChange={(e) => dispatch({type: "search", payload: e.target.value})}
+              onChange={(e) => dispatch({type: ACTION.SEARCH_INPUT, payload: e.target.value})}
           />
           {
               state.search ? (
                   <button className="clear" onClick={clearSearch}>X</button>
               ) : (
-                  <button className="btn" onClick={(() => dispatch({type: "color"}))}>Color</button>    
+                  <button className="btn" onClick={(() => dispatch({type: ACTION.COLOR}))}>Color</button>    
               )
           }
           <button className="btn" onClick={searchHandle}>search</button>
