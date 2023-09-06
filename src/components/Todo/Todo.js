@@ -15,6 +15,7 @@ function Todo() {
                 setTodos={setTodos}
                 todos={todos}
             />
+            
             <TodoList 
                 todos={todos}
                 setTodos={setTodos}

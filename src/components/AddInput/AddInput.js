@@ -19,6 +19,7 @@ function AddInput({
             }
         ]
         setTodos(updatedTodos);
+        localStorage.setItem("tasks", JSON.stringify(updatedTodos));
         setTodo("")
     }
 
@@ -31,7 +32,7 @@ function AddInput({
                 placeholder="Add a new task here..."
             />
             <button 
-                className="add-btn"
+                className="btn"
                 onClick={addTodo}
             >
                 Add

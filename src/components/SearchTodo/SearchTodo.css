@@ -1,18 +1,27 @@
-.input-container {
+.search-container {
     background-color: white;
-    margin-top: 2rem;
+    margin-top: 0.3rem;
     border-radius: 0.25rem;
     padding: 1rem;
     box-shadow: 0.1rem 0.1rem 1rem rgba(0, 0, 0, 0.329);
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
-.input {
+.search {
     border: none;
     width: 90%
 }
 
-.input:focus {
+.search:focus {
     outline: none;
+}
+
+.clear {
+    position: absolute;
+    right: 140px;
+    top: 18px;
+    border: none;
+    background-color: white;
 }
